@@ -60,6 +60,12 @@
     color: white;
 }
 
+.separatorDot{
+    color: white;
+    margin: 10px; 
+    font-size: 50px
+}
+
 .headerbutton {
     text-decoration: none;
     color: white;
@@ -72,6 +78,15 @@
     height: 80%;
     margin: 10px;
     border-radius: 10px;
+}
+
+@media screen and (max-width: 480px){
+    .headerbutton{
+      display: none;
+    }
+    .separatorDot{
+        display: none;
+    }
 }
 
 .headerbutton:hover {

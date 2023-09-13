@@ -5,7 +5,6 @@ using Infrastructure;
 using Infrastructure.Repositories;
 using Infrastructure.Retrievers;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
 
 namespace GPressFeed.API.Extensions;
 
