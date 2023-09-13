@@ -9,6 +9,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddTransientServices();
 builder.Services.AddPostgresDb(builder.Configuration);
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+builder.Services.AddGoogleTrendsRetriever(builder.Configuration);
 
 var app = builder.Build();
 

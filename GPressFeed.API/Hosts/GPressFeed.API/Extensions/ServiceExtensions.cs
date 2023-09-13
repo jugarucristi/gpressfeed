@@ -1,9 +1,11 @@
 ﻿using Application.Interfaces;
 using Application.Services;
+using GPressFeed.API.Configurations;
 using Infrastructure;
 using Infrastructure.Repositories;
 using Infrastructure.Retrievers;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace GPressFeed.API.Extensions;
 
@@ -13,6 +15,21 @@ public static class ServiceExtensions
     {
         services.AddTransient<IPressFeedRepository, PressFeedRepository>();
         services.AddTransient<IPressFeedService, PressFeedService>();
+        services.AddTransient<IGoogleTrendsRetriever, GoogleTrendsRetriever>();
+
+        return services;
+    }
+
+    public static IServiceCollection AddGoogleTrendsRetriever(this IServiceCollection services, IConfiguration configuration)
+    {
+        var retrieverConfiguration = configuration
+            .GetSection("GoogleTrendsRetrieverConfiguration")
+            .Get<GoogleTrendsConfiguration>();
+
+        services.AddHttpClient<IGoogleTrendsRetriever>(client =>
+        {
+            client.BaseAddress = new Uri(retrieverConfiguration.BaseAddress);
+        });
         services.AddTransient<IGoogleTrendsRetriever, GoogleTrendsRetriever>();
 
         return services;

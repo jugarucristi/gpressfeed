@@ -9,20 +9,19 @@ namespace Infrastructure.Retrievers;
 public class GoogleTrendsRetriever : IGoogleTrendsRetriever
 {
     private readonly IMapper _mapper;
+    private readonly HttpClient _httpClient;
 
-    public GoogleTrendsRetriever(IMapper mapper)
+    public GoogleTrendsRetriever(IMapper mapper, HttpClient httpClient)
     {
         _mapper = mapper;
+        _httpClient = httpClient;
     }
 
 	public async Task<List<Article>> GetNews()
 	{
-        var httpClient = new HttpClient();
-
-        httpClient.BaseAddress = new Uri("https://trends.google.com");
         var httpRequest = new HttpRequestMessage(HttpMethod.Get, "/trends/api/dailytrends?geo=RO");
 
-        var response = await httpClient.SendAsync(httpRequest);
+        var response = await _httpClient.SendAsync(httpRequest);
         var body = await response.Content.ReadAsStringAsync();
 
         var firstOcurrence = body.IndexOf("[");
@@ -32,7 +31,7 @@ public class GoogleTrendsRetriever : IGoogleTrendsRetriever
         var googleNews = JsonSerializer.Deserialize<List<TrendingSearches>>(body);
         
         var refinedList = new List<Article>();
-        googleNews.ElementAt(1).trendingSearches.ForEach(
+        googleNews.FirstOrDefault().trendingSearches.ForEach(
                 x => refinedList.Add(
                     _mapper.Map<Article>(x.articles[0])
                     )
