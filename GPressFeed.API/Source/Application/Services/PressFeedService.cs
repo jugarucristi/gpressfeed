@@ -27,6 +27,7 @@ public class PressFeedService : IPressFeedService
 
             currentFeed = newsFeed;
         }
+
         return currentFeed;
     }
 }

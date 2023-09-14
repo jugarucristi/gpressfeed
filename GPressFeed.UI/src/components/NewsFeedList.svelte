@@ -6,14 +6,14 @@ export let newsFeed: NewsFeed;
 </script>
 
 <style>
-.newsFeed {
+.newsFeedList {
 width: 90vw;
 margin-top: 30px;
 margin-bottom: 50px;
 }
 </style>
 
-<div class="newsFeed">
+<div class="newsFeedList">
     {#each newsFeed.articles as article}
         <Article article={article}/>
     {/each}
