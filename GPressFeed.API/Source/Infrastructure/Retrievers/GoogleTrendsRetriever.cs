@@ -31,7 +31,7 @@ public class GoogleTrendsRetriever : IGoogleTrendsRetriever
         var googleNews = JsonSerializer.Deserialize<List<TrendingSearches>>(body);
         
         var refinedList = new List<Article>();
-        googleNews.FirstOrDefault().trendingSearches.ForEach(
+        googleNews[1].trendingSearches.ForEach(
                 x => refinedList.Add(
                     _mapper.Map<Article>(x.articles[0])
                     )

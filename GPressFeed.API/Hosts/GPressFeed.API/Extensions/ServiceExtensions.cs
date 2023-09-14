@@ -21,15 +21,15 @@ public static class ServiceExtensions
 
     public static IServiceCollection AddGoogleTrendsRetriever(this IServiceCollection services, IConfiguration configuration)
     {
-        var retrieverConfiguration = configuration
-            .GetSection("GoogleTrendsRetrieverConfiguration")
-            .Get<GoogleTrendsConfiguration>();
+        services.AddTransient<IGoogleTrendsRetriever, GoogleTrendsRetriever>();
 
-        services.AddHttpClient<IGoogleTrendsRetriever>(client =>
+        var retrieverConfiguration = configuration
+           .GetSection("GoogleTrendsRetrieverConfiguration")
+           .Get<GoogleTrendsConfiguration>();
+        services.AddHttpClient<IGoogleTrendsRetriever, GoogleTrendsRetriever>(client =>
         {
             client.BaseAddress = new Uri(retrieverConfiguration.BaseAddress);
         });
-        services.AddTransient<IGoogleTrendsRetriever, GoogleTrendsRetriever>();
 
         return services;
     }
