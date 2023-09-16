@@ -1,0 +1,40 @@
+version: '3'
+name: gpressfeed
+services:
+  ui:
+    container_name: gpressfeedui
+    build: ./GPressFeed.UI
+    ports:
+      - "3000:3000"
+    networks:
+      - client-side
+  api:
+    container_name: gpressfeedapi
+    build: ./GPressFeed.API
+    ports:
+      - "8080:80"
+    networks:
+      - server-side
+      - client-side
+    depends_on:
+      - postgresdb
+  postgresdb:
+    image: postgres:latest
+    container_name: postgresdb
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: <<dbpassword>>
+      POSTGRES_DB: gpressfeed
+    ports:
+      - "5432:5432"
+    networks:
+      - server-side
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata: {}
+
+networks:
+  client-side: {}
+  server-side: {}

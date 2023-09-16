@@ -9,12 +9,12 @@ export default async function GetNewsFeed(): Promise<NewsFeed>
                 Accept: 'application/json',
             }
         };
-        const response = await fetch('https://cristijugaru.go.ro:5000/pressfeed', requestSettings)
+        const response = await fetch('http://localhost:8080/pressfeed', requestSettings)
 
         if(!response.ok)
             throw new Error(`Error! status: ${response.status}`);
 
-        const result = (await response.json()) as NewsFeed; // as newsfeed;
+        const result = (await response.json()) as NewsFeed;
 
         return result;
     }
