@@ -1,11 +1,17 @@
 version: '3'
 name: gpressfeed
 services:
+#  tunnel:
+#    container_name: cloudflaredtunnel
+#    image: cloudflare/cloudflared:latest
+#    command: tunnel run --token <<cloudflareToken>>
+#    networks:
+#      - client-side 
   reverse-proxy:
     container_name: reverseproxy
     build: ./ReverseProxy
     ports:
-      - "80:80"
+     - "80:80"
     networks:
       - client-side
     depends_on:
