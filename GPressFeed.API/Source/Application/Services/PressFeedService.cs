@@ -21,9 +21,13 @@ public class PressFeedService : IPressFeedService
         if (currentFeed == null)
         {
             var articleList = await _googleTrendsRetriever.GetNews();
-            var newsFeed = new Feed() { Articles = articleList };
 
-            await _repository.InsertNewsFeedAsync(newsFeed);
+            Feed newsFeed = null;
+            if (articleList != null)
+            {
+                newsFeed = new Feed() { Articles = articleList };
+                await _repository.InsertNewsFeedAsync(newsFeed);
+            }
 
             currentFeed = newsFeed;
         }

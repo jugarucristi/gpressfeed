@@ -36,9 +36,9 @@ services:
     image: postgres:15
     container_name: postgresdb
     environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: <<dbpassword>>
-      POSTGRES_DB: gpressfeed
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=<<dbpassword>>
+      - POSTGRES_DB=gpressfeed
     ports:
       - "5432:5432"
     networks:
