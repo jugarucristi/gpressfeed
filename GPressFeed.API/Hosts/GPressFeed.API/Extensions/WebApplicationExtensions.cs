@@ -7,6 +7,7 @@ public static class WebApplicationExtensions
 {
     public static void ApplyDbMigrations(this WebApplication app)
     {
-        app.Services.GetService<GPressFeedDbContext>().Database.Migrate();
+        using var scope = app.Services.CreateScope();
+        scope.ServiceProvider.GetService<GPressFeedDbContext>().Database.Migrate();
     }
 }
