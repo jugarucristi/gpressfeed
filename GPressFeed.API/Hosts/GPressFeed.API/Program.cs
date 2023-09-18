@@ -14,6 +14,8 @@ builder.Services.AddPressFeedCors(builder.Configuration);
 
 var app = builder.Build();
 
+app.ApplyDbMigrations();
+
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
