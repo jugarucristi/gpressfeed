@@ -46,4 +46,20 @@ public static class ServiceExtensions
 
         return services;
     }
+
+    public static IServiceCollection AddPressFeedCors(this IServiceCollection services, IConfiguration configuration)
+    {
+        var corsConfiguration = configuration.GetSection("CorsConfiguration").Get<CorsConfiguration>();
+
+        services.AddCors(options =>
+        {
+            options.AddPolicy(name: corsConfiguration.Name,
+                              policy =>
+                              {
+                                  policy.WithOrigins(corsConfiguration.OriginAddress);
+                              });
+        });
+
+        return services;
+    }
 }

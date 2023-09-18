@@ -10,6 +10,7 @@ builder.Services.AddTransientServices();
 builder.Services.AddPostgresDb(builder.Configuration);
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 builder.Services.AddGoogleTrendsRetriever(builder.Configuration);
+builder.Services.AddPressFeedCors(builder.Configuration);
 
 var app = builder.Build();
 
@@ -17,9 +18,10 @@ if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
+    app.UseCors(x => x.AllowAnyOrigin());
 }
 
-app.UseCors(x => x.AllowAnyOrigin());
+app.UseCors("GPressFeedOrigin");
 
 app.UseHttpsRedirection();
 
