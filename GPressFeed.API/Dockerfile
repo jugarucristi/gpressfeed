@@ -14,6 +14,4 @@ FROM mcr.microsoft.com/dotnet/aspnet:6.0
 WORKDIR /App
 COPY --from=build /app ./
 
-EXPOSE 3000
-
 ENTRYPOINT ["dotnet", "GPressFeed.API.dll"]

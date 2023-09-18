@@ -1,25 +1,33 @@
 version: '3'
 name: gpressfeed
 services:
+  reverse-proxy:
+    container_name: reverseproxy
+    build: ./ReverseProxy
+    ports:
+      - "80:80"
+    networks:
+      - client-side
+    depends_on:
+      - ui
+      - api
   ui:
     container_name: gpressfeedui
     build: ./GPressFeed.UI
-    ports:
-      - "3000:3000"
     networks:
       - client-side
+    depends_on:
+      - api
   api:
     container_name: gpressfeedapi
     build: ./GPressFeed.API
-    ports:
-      - "8080:80"
     networks:
-      - server-side
       - client-side
+      - server-side
     depends_on:
       - postgresdb
   postgresdb:
-    image: postgres:latest
+    image: postgres:15
     container_name: postgresdb
     environment:
       POSTGRES_USER: postgres

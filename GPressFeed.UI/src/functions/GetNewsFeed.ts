@@ -9,7 +9,7 @@ export default async function GetNewsFeed(): Promise<NewsFeed>
                 Accept: 'application/json',
             }
         };
-        const response = await fetch('http://localhost:8080/pressfeed', requestSettings)
+        const response = await fetch('http://localhost/api/pressfeed/', requestSettings)
 
         if(!response.ok)
             throw new Error(`Error! status: ${response.status}`);

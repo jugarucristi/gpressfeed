@@ -10,8 +10,6 @@ COPY . .
 
 RUN npm run build
 
-EXPOSE 80
-
 USER node:node
 
 CMD ["node","build/index.js"]
