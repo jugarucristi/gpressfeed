@@ -32,6 +32,12 @@ color: orange;
     transition: 0.2s;
     margin-left: 20px;
 }
+@media screen and (max-width: 480px){
+    .articleLink {
+    font-size: 20px;
+    font-weight: 500;
+    }  
+}
 </style>
 
 <div class="article">

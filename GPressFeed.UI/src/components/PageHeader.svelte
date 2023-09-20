@@ -34,6 +34,7 @@ border-radius: 10px;
     font-weight: 1000;
     color: white;
 }
+
 @media screen and (min-width: 480px)
 {
 .logo:hover {
@@ -88,6 +89,12 @@ border-radius: 10px;
     border-bottom: 1px solid white;
     overflow: hidden;
     }
+    .logo {
+    text-decoration: none;
+    font-size: 45px;
+    font-weight: 1000;
+    color: white;
+    }
     .headerbutton{
       display: none;
     }
@@ -118,15 +125,16 @@ border-radius: 10px;
 }
 
 .dropdownmenuactive{
-    height: 50px;
+    height: 40px;
     padding: 25px;
 }
 
 .dropdownbutton {
-text-decoration: none;
-color: white;
-font-size: 30px;
-font-weight: 600;
+    text-decoration: none;
+    color: white;
+    font-size: 25px;
+    font-weight: 600;
+    margin-top: 5px;
 }
 </style>
 

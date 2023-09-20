@@ -11,6 +11,12 @@ width: 90vw;
 margin-top: 30px;
 margin-bottom: 50px;
 }
+@media screen and (max-width: 480px){
+    .newsFeedList {
+    margin-top: 15px;
+    margin-bottom: 50px;
+    }
+}
 </style>
 
 <div class="newsFeedList">

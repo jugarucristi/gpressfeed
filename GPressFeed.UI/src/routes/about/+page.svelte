@@ -15,12 +15,12 @@
 
     .title {
         font-size: 45px;
-        margin-bottom: 50px;
     }
 
     .paragraphbody{
         max-width: 600px;
         margin-bottom: 100px;
+        margin-top: 30px;
         text-align: center;
     }
     @media screen and (max-width: 480px){
@@ -35,7 +35,7 @@
     }
 
     .title {
-        font-size: 20px;
+        font-size: 18px;
     }
 
     .paragraphbody{
@@ -47,7 +47,10 @@
 <div class="pagebody">
     <div class="paragraph">
         <div class="title">
-            Welcome to GPressFeed, crafted by Cristi!
+            Welcome to GPressFeed,
+        </div>
+        <div class="title">
+            Crafted by Cristi!
         </div>
         <div class="paragraphbody">
             Discover the day's most interesting news sourced and curated using advanced language models. 
