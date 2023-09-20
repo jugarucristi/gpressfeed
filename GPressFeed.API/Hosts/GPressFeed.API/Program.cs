@@ -22,8 +22,10 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
     app.UseCors(x => x.AllowAnyOrigin());
 }
-
-app.UseCors("GPressFeedOrigin");
+else
+{
+    app.UseCors("GPressFeedOrigin");
+}
 
 app.UseHttpsRedirection();
 

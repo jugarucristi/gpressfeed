@@ -1,5 +1,6 @@
 *{
     font-family: "Josefine Sans", Calibri, Tahoma, sans-serif;
+    overflow-x: hidden;
 }
 
 .pagecontent{
@@ -8,32 +9,6 @@
     display: flex;
     justify-content: center;
     min-height: 80vh;
-}
-
-.header{
-    display: flex;
-    box-sizing: border-box;
-    flex-direction: row;
-    align-items: center;
-    width: 100vw;
-    background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(23,23,23,1) 94%);
-    height: 4em;
-    border-bottom: 1px solid white;
-    padding-left: 25px;
-    padding-right: 25px;
-}
-
-.logo {
-    text-decoration: none;
-    font-size: 50px;
-    font-weight: 1000;
-    color: white;
-}
-
-.logo:hover {
-    color: orange;
-    cursor: pointer;
-    transition: 0.2s;
 }
 
 .footer {
@@ -60,40 +35,6 @@
     color: white;
 }
 
-.separatorDot{
-    color: white;
-    margin: 10px; 
-    font-size: 50px
-}
-
-.headerbutton {
-    text-decoration: none;
-    color: white;
-    font-size: 20px;
-    font-weight: 600;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100px;
-    height: 80%;
-    margin: 10px;
-    border-radius: 10px;
-}
-
-@media screen and (max-width: 480px){
-    .headerbutton{
-      display: none;
-    }
-    .separatorDot{
-        display: none;
-    }
-}
-
-.headerbutton:hover {
-    color: orange;
-    cursor: pointer;
-    transition: 0.2s;
-}
 
 .articleList {
     width: 90vw;

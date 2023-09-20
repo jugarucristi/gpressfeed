@@ -1,15 +1,12 @@
+<script lang="ts">
+	import PageHeader from "../components/PageHeader.svelte";
+</script>
+
 <style>
 	@import 'layout.css';
 </style>
 
-<div class="header">
-    <div class="row">
-	    <a class="logo" href="/">GPressFeed</a> 
-        <div class="separatorDot">&#x2022</div>
-    </div>
-    <!--<div class="headerbutton">Older News</div>-->
-	<a class="headerbutton" href="/about">About</a>
-</div>
+<PageHeader/>
 <div class="pagecontent">
     <slot/>
 </div>

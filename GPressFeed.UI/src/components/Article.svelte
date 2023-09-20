@@ -1,6 +1,6 @@
 <script lang=ts>
-  import type  Article from "../models/Article.type";
-  export let article: Article;
+import type  Article from "../models/Article.type";
+export let article: Article;
 </script>
 
 <style>    

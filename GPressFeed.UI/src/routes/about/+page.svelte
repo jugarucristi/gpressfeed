@@ -23,6 +23,26 @@
         margin-bottom: 100px;
         text-align: center;
     }
+    @media screen and (max-width: 480px){
+    .pagebody {
+        margin-top: 50px;
+    }
+    .paragraph{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: 20px;
+    }
+
+    .title {
+        font-size: 20px;
+    }
+
+    .paragraphbody{
+        max-width: 600px;
+        text-align: center;
+    }
+    }
 </style>
 <div class="pagebody">
     <div class="paragraph">
