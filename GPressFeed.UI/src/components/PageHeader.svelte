@@ -5,6 +5,7 @@ display: flex;
 box-sizing: border-box;
 flex-direction: row;
 align-items: center;
+justify-content: space-between;
 width: 100vw;
 background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(23,23,23,1) 94%);
 height: 4em;
@@ -129,7 +130,7 @@ border-radius: 10px;
 }
 
 .dropdownmenuactive{
-    height: 150px;
+    height: 225px;
     padding: 15px;
 }
 
@@ -149,13 +150,17 @@ border-radius: 10px;
 <div class="header" class:headerdropdownactive={isMenuActive}>
     <div class="row">
 	    <a class="logo" on:click={(_) => isMenuActive = false} href="/">GPressFeed</a> 
-        <div class="separatorDot">&#x2022</div>
+        <div class="separatorDot">
+            &#x2022
+        </div>
+        <a class="headerbutton" href="/">Home</a>
+        <a class="headerbutton" href="/archive">Older News</a>
     </div>
+    <a class="headerbutton" href="/about">About</a>
     <div aria-hidden="true" on:click={(_) => isMenuActive = !isMenuActive} class="hamburger-menu" class:hamburger-menu-active={isMenuActive}/>
-	<a class="headerbutton" href="/about">About</a>
-    <a class="headerbutton" href="/archive">Older News</a>
 </div>
 <div class="dropdownmenu" class:dropdownmenuactive={isMenuActive}>
-    <a class="dropdownbutton" on:click={(_) => isMenuActive = !isMenuActive} href="/about">About</a>
+    <a class="dropdownbutton" on:click={(_) => isMenuActive = !isMenuActive} href="/">Home</a>
     <a class="dropdownbutton" on:click={(_) => isMenuActive = !isMenuActive} href="/archive">Older News</a>
+    <a class="dropdownbutton" on:click={(_) => isMenuActive = !isMenuActive} href="/about">About</a>
 </div>
