@@ -37,11 +37,14 @@ border-radius: 10px;
 
 @media screen and (min-width: 480px)
 {
-.logo:hover {
-    color: orange;
-    cursor: pointer;
-    transition: 0.2s;
-}
+    .logo:hover {
+        color: orange;
+        cursor: pointer;
+        transition: 0.2s;
+    }
+    .dropdownmenuactive{
+        height: 0px;
+    }
 }
 
 .separatorDot{
@@ -118,6 +121,7 @@ border-radius: 10px;
     display:flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     height: 300px;
     transform: 1s;
     height: 0px;
@@ -125,8 +129,8 @@ border-radius: 10px;
 }
 
 .dropdownmenuactive{
-    height: 40px;
-    padding: 25px;
+    height: 150px;
+    padding: 15px;
 }
 
 .dropdownbutton {
@@ -134,7 +138,7 @@ border-radius: 10px;
     color: white;
     font-size: 25px;
     font-weight: 600;
-    margin-top: 5px;
+    margin: 20px;
 }
 </style>
 
@@ -149,7 +153,9 @@ border-radius: 10px;
     </div>
     <div aria-hidden="true" on:click={(_) => isMenuActive = !isMenuActive} class="hamburger-menu" class:hamburger-menu-active={isMenuActive}/>
 	<a class="headerbutton" href="/about">About</a>
+    <a class="headerbutton" href="/archive">Older News</a>
 </div>
 <div class="dropdownmenu" class:dropdownmenuactive={isMenuActive}>
     <a class="dropdownbutton" on:click={(_) => isMenuActive = !isMenuActive} href="/about">About</a>
+    <a class="dropdownbutton" on:click={(_) => isMenuActive = !isMenuActive} href="/archive">Older News</a>
 </div>

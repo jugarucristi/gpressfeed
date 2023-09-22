@@ -5,17 +5,18 @@ export let article: Article;
 
 <style>    
 .article{
+    display: flex;
     margin-bottom: 25px;
     border-left: 5px solid #232323;
     padding-left: 15px;
+    min-height: 45px;
+    align-items: center;
 }
 
 .articleLink {
     color: white;
     font-size: 30px;
     font-weight: 500;
-    height: 50px;
-    width: 100px;
     text-decoration: none;
     transition: 0.2s;
 }   

@@ -33,4 +33,35 @@ public class PressFeedRepository : IPressFeedRepository
 
         return result;
     }
+
+    public async Task<List<Feed>> GetFeedHistoryAsync(int numberOfFeeds)
+    {
+        if (numberOfFeeds < 1)
+        {
+            throw new ArgumentOutOfRangeException("Number of articles must be greater or equal to 1");
+        }
+
+        var result = await _context.Feeds.ToListAsync();
+
+        if (result.Count < numberOfFeeds)
+        {
+            return result;
+        }
+        else
+        {
+            return result.GetRange(0, numberOfFeeds);
+        }
+    }
+
+    public async Task<Feed> GetFeedByIdAsync(string feedId)
+    {
+        ArgumentNullException.ThrowIfNull(feedId);
+
+        var result = await _context.Feeds
+            .Where(x => x.Id.ToString() == feedId)
+            .Include(x => x.Articles)
+            .FirstAsync();
+
+        return result;
+    }
 }

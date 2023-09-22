@@ -1,4 +1,4 @@
 export default interface Article {
-    title: string;
-    link: string;
+  title: string;
+  link: string;
 }

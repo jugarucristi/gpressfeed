@@ -1,43 +1,64 @@
-*{
-    font-family: "Josefine Sans", Calibri, Tahoma, sans-serif;
-    overflow-x: hidden;
+* {
+  font-family: "Josefine Sans", Calibri, Tahoma, sans-serif;
+  overflow-x: hidden;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
-.pagecontent{
-    margin: 20px;
-    color: white;
-    display: flex;
-    justify-content: center;
-    min-height: 80vh;
+.pagecontent {
+  margin: 20px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  min-height: 80vh;
 }
 
 .footer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    color: white;
-    background-color:#232323;
-    border-top: 1px solid black;
-    height: 50px;
-  }
-
-.row{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  color: white;
+  background-color: #232323;
+  border-top: 1px solid black;
+  height: 50px;
 }
 
-.typography{
-    color: white;
+.row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
+.typography {
+  color: white;
+}
 
 .articleList {
-    width: 90vw;
+  width: 90vw;
+}
+
+.articleDate {
+  font-size: 50px;
+  margin: 0px 0px 0px 50px;
+  padding-left: 15px;
+  padding-right: 15px;
+  border-bottom: solid 5px #232323;
+  color: #232323;
+  width: fit-content;
+}
+
+@media screen and (max-width: 480px) {
+  .articleDate {
+    font-size: 30px;
+    margin: 0px 0px 0px 30px;
+  }
 }
 
 /*

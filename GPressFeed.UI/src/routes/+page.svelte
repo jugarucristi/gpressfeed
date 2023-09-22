@@ -1,13 +1,16 @@
 <script lang=ts>
   import NewsFeedList from "../components/NewsFeedList.svelte"
   import Loader from "../components/Loader.svelte";
-  import GetNewsFeed from "../functions/GetNewsFeed";
+  import GetTodaysNewsFeed from "../functions/GetTodaysNewsFeed";
 </script>
 
-{#await GetNewsFeed()}
+{#await GetTodaysNewsFeed()}
   <Loader/>
 {:then newsFeed}
+<div class="column">
+  <p class="articleDate">Today</p>
   <NewsFeedList newsFeed={newsFeed}/>
-{:catch error}
+</div>
+{:catch}
   <p>The API is down!</p>
 {/await}
