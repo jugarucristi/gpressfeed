@@ -41,14 +41,14 @@ public class PressFeedController : ControllerBase
 
     [HttpGet("history")]
     [ProducesResponseType(200)]
-    public async Task<IActionResult> GetFeedHistoryAsync([FromQuery] int numberOfNews)
+    public async Task<IActionResult> GetFeedHistoryAsync([FromQuery] int numberOfFeeds)
     {
-        if(numberOfNews < 1)
+        if(numberOfFeeds < 1)
         {
             return BadRequest();
         }
 
-        var result = await _pressFeedService.GetFeedHistoryAsync(numberOfNews);
+        var result = await _pressFeedService.GetFeedHistoryAsync(numberOfFeeds);
 
         return Ok(result);
     }

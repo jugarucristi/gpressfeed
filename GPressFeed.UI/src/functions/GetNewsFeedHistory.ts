@@ -1,7 +1,7 @@
 import type NewsFeed from "../models/NewsFeed.type";
 
 export default async function GetNewsFeedHistory(
-  numberOfNews: number
+  numberOfFeeds: number
 ): Promise<NewsFeed[]> {
   try {
     const requestSettings = {
@@ -11,8 +11,8 @@ export default async function GetNewsFeedHistory(
       },
     };
     const response = await fetch(
-      "https://www.gpressfeed.com/api/pressfeed/history?numberofnews=" +
-        numberOfNews,
+      "https://www.gpressfeed.com/api/pressfeed/history?numberoffeeds=" +
+        numberOfFeeds,
       requestSettings
     );
 

@@ -3,8 +3,8 @@ export default function FormatDate(unformattedDate: Date) {
 
   let month =
     unformattedDate.getMonth() > 10
-      ? unformattedDate.getMonth()
-      : "0" + unformattedDate.getMonth();
+      ? unformattedDate.getMonth() + 1
+      : "0" + (unformattedDate.getMonth() + 1);
 
   let formattedDate =
     unformattedDate.getDate() +

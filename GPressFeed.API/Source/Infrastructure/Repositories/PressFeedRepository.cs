@@ -41,7 +41,10 @@ public class PressFeedRepository : IPressFeedRepository
             throw new ArgumentOutOfRangeException("Number of articles must be greater or equal to 1");
         }
 
-        var result = await _context.Feeds.ToListAsync();
+        var result = await _context.Feeds
+            .GroupBy(x => x.PublishDate.Day)
+            .Select(x => x.First())
+            .ToListAsync();
 
         if (result.Count < numberOfFeeds)
         {
