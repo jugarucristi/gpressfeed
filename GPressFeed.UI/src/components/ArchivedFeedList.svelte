@@ -6,7 +6,7 @@
   archivedFeeds.sort(
     function (a , b) 
     { 
-        return (a.publishDate > b.publishDate) ? 1 : 0;
+        return (a.publishDate > b.publishDate) ? 0 : 1;
     });
 </script>
 
