@@ -3,6 +3,11 @@
   import FeedLink from "./FeedLink.svelte";
 
   export let archivedFeeds: NewsFeed[]; 
+  archivedFeeds.sort(
+    function (a , b) 
+    { 
+        return (a.publishDate > b.publishDate) ? 1 : 0;
+    });
 </script>
 
 <style>

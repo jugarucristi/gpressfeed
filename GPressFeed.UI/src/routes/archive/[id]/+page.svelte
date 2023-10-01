@@ -3,6 +3,7 @@
   import GetNewsFeedById from '../../../functions/GetNewsFeedById';
   import NewsFeedList from '../../../components/NewsFeedList.svelte';
   import FormatDate from '../../../functions/FormatDate';
+  import ApiDownMessage from '../../../components/ApiDownMessage.svelte';
 
   export let data;
   const articleId: string = data.articleId;
@@ -16,5 +17,5 @@
     <NewsFeedList newsFeed={newsFeed}/>
   </div>
 {:catch}
-  <p>The API is down!</p>
+  <ApiDownMessage/>
 {/await}

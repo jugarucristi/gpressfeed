@@ -2,6 +2,7 @@
   import NewsFeedList from "../components/NewsFeedList.svelte"
   import Loader from "../components/Loader.svelte";
   import GetTodaysNewsFeed from "../functions/GetTodaysNewsFeed";
+  import ApiDownMessage from "../components/ApiDownMessage.svelte";
 </script>
 
 {#await GetTodaysNewsFeed()}
@@ -12,5 +13,5 @@
   <NewsFeedList newsFeed={newsFeed}/>
 </div>
 {:catch}
-  <p>The API is down!</p>
+  <ApiDownMessage/>
 {/await}

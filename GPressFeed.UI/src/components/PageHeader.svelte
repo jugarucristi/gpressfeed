@@ -1,5 +1,4 @@
 <style>
-
 .header{
 display: flex;
 box-sizing: border-box;
@@ -27,6 +26,7 @@ width: 100px;
 height: 80%;
 margin: 10px;
 border-radius: 10px;
+overflow: hidden;
 }
 
 .logo {

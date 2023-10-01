@@ -1,4 +1,5 @@
 <script lang="ts">
+  import ApiDownMessage from "../../components/ApiDownMessage.svelte";
   import ArchivedFeedList from "../../components/ArchivedFeedList.svelte";
   import Loader from "../../components/Loader.svelte";
   import GetNewsFeedHistory from "../../functions/GetNewsFeedHistory";
@@ -9,5 +10,5 @@
 {:then archivedFeeds}
   <ArchivedFeedList archivedFeeds={archivedFeeds}/>
 {:catch}
-  <p>The API is down!</p>
+  <ApiDownMessage/>
 {/await}
