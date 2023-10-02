@@ -5,7 +5,7 @@
   import GetNewsFeedHistory from "../../functions/GetNewsFeedHistory";
 </script>
 
-{#await GetNewsFeedHistory(10)}
+{#await GetNewsFeedHistory(11)}
   <Loader/>
 {:then archivedFeeds}
   <ArchivedFeedList archivedFeeds={archivedFeeds}/>

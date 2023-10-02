@@ -19,9 +19,8 @@ export default async function GetNewsFeedHistory(
     if (!response.ok) throw new Error(`Error! status: ${response.status}`);
 
     const result = (await response.json()) as NewsFeed[];
-    result.pop();
-    result.reverse();
-    return result;
+
+    return result.splice(1, 10);
   } catch {
     throw new Error("Api is down!");
   }
