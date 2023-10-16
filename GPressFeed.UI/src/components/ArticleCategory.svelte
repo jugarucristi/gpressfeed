@@ -40,7 +40,7 @@
 </style>
 
 <div class="category" style="color: {color}">
-    {#if category != Category.Unknown && category}
+    {#if category}
         {"[ " + category + " ]"}
     {/if}
 </div>
