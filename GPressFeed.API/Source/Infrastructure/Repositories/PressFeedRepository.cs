@@ -19,6 +19,16 @@ public class PressFeedRepository : IPressFeedRepository
         await _context.SaveChangesAsync();
     }
 
+    public async Task<Feed> GetLatestAvailableFeed()
+    {
+        var result = await _context.Feeds
+            .OrderByDescending(x => x.PublishDate)
+            .Include(x => x.Articles)
+            .FirstAsync();
+
+        return result;
+    }
+
     public async Task<Feed> GetCurrentNewsFeedAsync()
     {
         var currentDate = DateTime.Now.AddHours(-6);

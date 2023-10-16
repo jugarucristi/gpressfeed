@@ -4,6 +4,8 @@ namespace Application.Interfaces;
 
 public interface IPressFeedService
 {
+    Task<Feed> GetLatestNewsAsync();
+
     Task<Feed> UpsertAndReturnTodaysNewsAsync();
 
     Task<List<Feed>> GetFeedHistoryAsync(int numberOfFeeds);

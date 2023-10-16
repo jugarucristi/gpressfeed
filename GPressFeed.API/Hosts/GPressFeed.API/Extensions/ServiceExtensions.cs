@@ -2,6 +2,7 @@
 using Application.Services;
 using GPressFeed.API.Configurations;
 using Infrastructure;
+using Infrastructure.Configuration;
 using Infrastructure.Repositories;
 using Infrastructure.Retrievers;
 using Microsoft.EntityFrameworkCore;
@@ -27,6 +28,22 @@ public static class ServiceExtensions
            .GetSection("GoogleTrendsRetrieverConfiguration")
            .Get<GoogleTrendsConfiguration>();
         services.AddHttpClient<IGoogleTrendsRetriever, GoogleTrendsRetriever>(client =>
+        {
+            client.BaseAddress = new Uri(retrieverConfiguration.BaseAddress);
+        });
+
+        return services;
+    }
+
+    public static IServiceCollection AddPaLMRetriever(this IServiceCollection services, IConfiguration configuration)
+    {
+        var retrieverConfiguration = configuration
+           .GetSection("PaLMRetrieverConfiguraton")
+           .Get<PaLMRetrieverConfiguration>();
+
+        services.AddSingleton(retrieverConfiguration);
+        services.AddTransient<IPaLMRetriever, PaLMRetriever>();
+        services.AddHttpClient<IPaLMRetriever, PaLMRetriever>(client =>
         {
             client.BaseAddress = new Uri(retrieverConfiguration.BaseAddress);
         });

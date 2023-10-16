@@ -1,5 +1,6 @@
 <script lang="ts">
 import type NewsFeed from "../models/NewsFeed.type";
+import ArticleCategory from "./ArticleCategory.svelte";
 import ArticleLink from "./ArticleLink.svelte"
 
 export let newsFeed: NewsFeed;
@@ -22,5 +23,6 @@ margin-bottom: 50px;
 <div class="newsFeedList">
     {#each newsFeed.articles as article}
         <ArticleLink article={article}/>
+        <ArticleCategory category={article.category}/>
     {/each}
 </div>

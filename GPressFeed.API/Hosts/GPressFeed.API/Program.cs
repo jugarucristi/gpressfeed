@@ -10,6 +10,7 @@ builder.Services.AddTransientServices();
 builder.Services.AddPostgresDb(builder.Configuration);
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 builder.Services.AddGoogleTrendsRetriever(builder.Configuration);
+builder.Services.AddPaLMRetriever(builder.Configuration);
 builder.Services.AddPressFeedCors(builder.Configuration);
 
 var app = builder.Build();

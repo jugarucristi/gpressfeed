@@ -8,6 +8,8 @@ public interface IPressFeedRepository
 
     Task InsertNewsFeedAsync(Feed feed);
 
+    Task<Feed> GetLatestAvailableFeed();
+
     Task<List<Feed>> GetFeedHistoryAsync(int numberOfFeeds);
 
     Task<Feed> GetFeedByIdAsync(string id);

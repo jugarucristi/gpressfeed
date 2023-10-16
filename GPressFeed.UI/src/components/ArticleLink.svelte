@@ -6,7 +6,6 @@ export let article: Article;
 <style>    
 .article{
     display: flex;
-    margin-bottom: 25px;
     border-left: 5px solid #232323;
     padding-left: 15px;
     min-height: 45px;
