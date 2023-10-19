@@ -1,11 +1,15 @@
 ﻿using Application.Interfaces;
 using Application.Services;
+using AutoMapper.Configuration.Annotations;
 using GPressFeed.API.Configurations;
+using GPressFeed.API.Jobs;
 using Infrastructure;
 using Infrastructure.Configuration;
 using Infrastructure.Repositories;
 using Infrastructure.Retrievers;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using Quartz;
 
 namespace GPressFeed.API.Extensions;
 
@@ -76,6 +80,26 @@ public static class ServiceExtensions
                                   policy.WithOrigins(corsConfiguration.OriginAddress);
                               });
         });
+
+        return services;
+    }
+
+    public static IServiceCollection AddFetchNewsJob(this IServiceCollection services, IConfiguration configuration)
+    {
+        var jobConfiguration = configuration.GetSection("FetchNewsJobConfiguration").Get<FetchNewsJobConfiguration>();
+
+        services.AddQuartz(o =>
+        {
+            o.UseMicrosoftDependencyInjectionJobFactory();
+            var jobKey = new JobKey(jobConfiguration.Name);
+            o.AddJob<FetchNewsJob>(o => o.WithIdentity(jobKey));
+            o.AddTrigger(o =>
+                o.ForJob(jobKey)
+                .WithIdentity(jobConfiguration.Name)
+                .WithCronSchedule(jobConfiguration.CronSchedule)
+            );
+        });
+        services.AddQuartzHostedService(q => q.WaitForJobsToComplete = true);
 
         return services;
     }

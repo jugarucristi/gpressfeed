@@ -4,7 +4,8 @@ WORKDIR /source
 
 COPY . .
 
-RUN dotnet publish "./Hosts/GPressFeed.API" -c release -o /app 
+# Remove '-p:Configuration=Development' when going Prod
+RUN dotnet publish "./Hosts/GPressFeed.API" -p:Configuration=Development -c release -o /app 
 
 RUN dotnet tool install --global dotnet-ef
 ENV PATH="$PATH:/root/.dotnet/tools"

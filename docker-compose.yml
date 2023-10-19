@@ -39,8 +39,8 @@ services:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=<<dbpassword>>
       - POSTGRES_DB=gpressfeed
-    ports:
-      - "5432:5432"
+#    ports:
+#      - "5432:5432"
     networks:
       - server-side
     volumes:

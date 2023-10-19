@@ -1,4 +1,5 @@
 import type NewsFeed from "../models/NewsFeed.type";
+import GetGPressFeedApiUrl from "./GetGPressFeedApiUrl";
 
 export default async function GetNewsFeedById(
   feedId: string
@@ -11,7 +12,7 @@ export default async function GetNewsFeedById(
       },
     };
     const response = await fetch(
-      "https://www.gpressfeed.com/api/pressfeed?feedid=" + feedId,
+      GetGPressFeedApiUrl() + "/api/pressfeed?feedid=" + feedId,
       requestSettings
     );
 

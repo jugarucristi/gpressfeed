@@ -34,7 +34,7 @@ public class PressFeedController : ControllerBase
     [ProducesResponseType(200)]
     public async Task<IActionResult> GetTodaysNewsAsync()
     {
-        var result = await _pressFeedService.UpsertAndReturnTodaysNewsAsync();
+        var result = await _pressFeedService.GetLatestNewsAsync();
 
         return Ok(result);
     }

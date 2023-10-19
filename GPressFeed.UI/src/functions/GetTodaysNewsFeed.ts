@@ -1,4 +1,5 @@
 import type NewsFeed from "../models/NewsFeed.type";
+import GetGPressFeedApiUrl from "./GetGPressFeedApiUrl";
 
 export default async function GetTodaysNewsFeed(): Promise<NewsFeed> {
   try {
@@ -8,8 +9,9 @@ export default async function GetTodaysNewsFeed(): Promise<NewsFeed> {
         Accept: "application/json",
       },
     };
+
     const response = await fetch(
-      "https://www.gpressfeed.com/api/pressfeed/today/",
+      GetGPressFeedApiUrl() + "/api/pressfeed/today/",
       requestSettings
     );
 

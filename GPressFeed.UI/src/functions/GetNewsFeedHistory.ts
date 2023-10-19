@@ -1,4 +1,5 @@
 import type NewsFeed from "../models/NewsFeed.type";
+import GetGPressFeedApiUrl from "./GetGPressFeedApiUrl";
 
 export default async function GetNewsFeedHistory(
   numberOfFeeds: number
@@ -11,7 +12,8 @@ export default async function GetNewsFeedHistory(
       },
     };
     const response = await fetch(
-      "https://www.gpressfeed.com/api/pressfeed/history?numberoffeeds=" +
+      GetGPressFeedApiUrl() +
+        "/api/pressfeed/history?numberoffeeds=" +
         numberOfFeeds,
       requestSettings
     );
