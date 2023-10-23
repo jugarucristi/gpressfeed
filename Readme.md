@@ -1,6 +1,6 @@
 # 🟧 GPressFeed ⬛
 
-Welcome to [GPressFeed](www.gpressfeed.com), a web application designed to aggregate and display news articles from various sources. This README provides installation instructions and important configuration details.
+Welcome to [GPressFeed](https://www.gpressfeed.com), a web application designed to aggregate and display news articles from various sources. This README provides installation instructions and important configuration details.
 
 ## About 📰
 
