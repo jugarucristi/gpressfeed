@@ -52,8 +52,6 @@ public class PressFeedRepository : IPressFeedRepository
         }
 
         var result = await _context.Feeds
-            .GroupBy(x => x.PublishDate.Day)
-            .Select(x => x.First())
             .ToListAsync();
 
         result = result.OrderByDescending(x => x.PublishDate).ToList();
