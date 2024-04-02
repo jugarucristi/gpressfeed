@@ -9,9 +9,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GPressFeed.API", "Hosts\GPr
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Source", "Source", "{06362E20-7AF6-4949-A1AC-3D1D0B3AEA5F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "Source\Infrastructure\Infrastructure.csproj", "{5654BC2E-ADDE-40CE-977C-F00D402B63C0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure", "Source\Infrastructure\Infrastructure.csproj", "{5654BC2E-ADDE-40CE-977C-F00D402B63C0}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application", "Source\Application\Application.csproj", "{43EFB1DB-F1BA-48AA-B526-06469C3B512F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{5733FD39-AAEE-490C-9C79-EC167EC458E7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests.xUnit", "Tests\UnitTests.xUnit\UnitTests.xUnit.csproj", "{03846D4C-2A74-4687-8687-D24AB29590CA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,6 +35,10 @@ Global
 		{43EFB1DB-F1BA-48AA-B526-06469C3B512F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{43EFB1DB-F1BA-48AA-B526-06469C3B512F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{43EFB1DB-F1BA-48AA-B526-06469C3B512F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{03846D4C-2A74-4687-8687-D24AB29590CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{03846D4C-2A74-4687-8687-D24AB29590CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{03846D4C-2A74-4687-8687-D24AB29590CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{03846D4C-2A74-4687-8687-D24AB29590CA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -39,6 +47,7 @@ Global
 		{79AEDACA-CE48-4E9E-B94A-D952B2235145} = {EE95AD12-AA7F-4762-BC32-074303FA405D}
 		{5654BC2E-ADDE-40CE-977C-F00D402B63C0} = {06362E20-7AF6-4949-A1AC-3D1D0B3AEA5F}
 		{43EFB1DB-F1BA-48AA-B526-06469C3B512F} = {06362E20-7AF6-4949-A1AC-3D1D0B3AEA5F}
+		{03846D4C-2A74-4687-8687-D24AB29590CA} = {5733FD39-AAEE-490C-9C79-EC167EC458E7}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8E834EAC-80CC-4E0E-8671-1AE39C270082}
