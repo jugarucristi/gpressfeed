@@ -7,12 +7,12 @@ public class PressFeedService : IPressFeedService
 {
     private readonly IGoogleTrendsRetriever _googleTrendsRetriever;
     private readonly IPressFeedRepository _repository;
-    private readonly IPaLMRetriever _paLMRetriever;
+    private readonly ICategoryRetriever _paLMRetriever;
 
     public PressFeedService(
         IGoogleTrendsRetriever googleTrendsRetriever, 
         IPressFeedRepository repository, 
-        IPaLMRetriever paLMRetriever
+        ICategoryRetriever paLMRetriever
         )
     {
         _googleTrendsRetriever = googleTrendsRetriever;
@@ -27,7 +27,7 @@ public class PressFeedService : IPressFeedService
         return currentFeed;
     }
 
-    public async Task<Feed> UpsertAndReturnTodaysNewsAsync()
+    public async Task UpsertTodaysNewsAsync()
     {
         var currentFeed = await _repository.GetCurrentNewsFeedAsync();
 
@@ -35,17 +35,9 @@ public class PressFeedService : IPressFeedService
         {
             var articleList = await _googleTrendsRetriever.GetNews();
 
-            Feed newsFeed = null;
-            if (articleList != null)
-            {
-                newsFeed = await _paLMRetriever.GetFeedWithArticleCategories(articleList);
-                await _repository.InsertNewsFeedAsync(newsFeed);
-            }
-
-            currentFeed = newsFeed;
+            var newsFeed = await _paLMRetriever.GetFeedWithArticleCategories(articleList);
+            await _repository.InsertNewsFeedAsync(newsFeed);
         }
-
-        return currentFeed;
     }
 
     public async Task<List<Feed>> GetFeedHistoryAsync(int numberOfFeeds)

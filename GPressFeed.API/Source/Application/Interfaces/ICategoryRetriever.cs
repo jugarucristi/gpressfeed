@@ -2,7 +2,7 @@
 
 namespace Application.Interfaces;
 
-public interface IPaLMRetriever
+public interface ICategoryRetriever
 {
     public Task<Feed> GetFeedWithArticleCategories(List<Article> articleList);
 }

@@ -1,10 +1,10 @@
-﻿namespace Infrastructure.DTOs;
+﻿namespace Infrastructure.DTOs.PaLM;
 
 internal class PaLMRequestDTO
 {
     public Prompt prompt { get; set; } = new Prompt();
 
-    public List<SafetySettings> safetySettings { get; } 
+    public List<SafetySettings> safetySettings { get; }
         = new List<SafetySettings>()
         {
             new SafetySettings()

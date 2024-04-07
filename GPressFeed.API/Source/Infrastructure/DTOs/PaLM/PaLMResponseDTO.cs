@@ -1,4 +1,4 @@
-﻿namespace Infrastructure.DTOs;
+﻿namespace Infrastructure.DTOs.PaLM;
 
 internal class PaLMResponseDTO
 {

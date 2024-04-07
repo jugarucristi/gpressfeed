@@ -10,7 +10,7 @@ builder.Services.AddTransientServices();
 builder.Services.AddPostgresDb(builder.Configuration);
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 builder.Services.AddGoogleTrendsRetriever(builder.Configuration);
-builder.Services.AddPaLMRetriever(builder.Configuration);
+builder.Services.AddOpenAiRetriever(builder.Configuration);
 builder.Services.AddPressFeedCors(builder.Configuration);
 builder.Services.AddFetchNewsJob(builder.Configuration);
 

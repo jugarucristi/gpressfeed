@@ -1,12 +1,12 @@
 ﻿using Application.Interfaces;
 using Application.Models;
 using Infrastructure.Configuration;
-using Infrastructure.DTOs;
+using Infrastructure.DTOs.PaLM;
 using System.Text.Json;
 
 namespace Infrastructure.Retrievers;
 
-public class PaLMRetriever : IPaLMRetriever
+public class PaLMRetriever : ICategoryRetriever
 {
     private readonly PaLMRetrieverConfiguration _configuration;
     private readonly HttpClient _httpClient;

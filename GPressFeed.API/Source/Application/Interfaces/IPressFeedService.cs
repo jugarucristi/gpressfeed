@@ -6,7 +6,7 @@ public interface IPressFeedService
 {
     Task<Feed> GetLatestNewsAsync();
 
-    Task<Feed> UpsertAndReturnTodaysNewsAsync();
+    Task UpsertTodaysNewsAsync();
 
     Task<List<Feed>> GetFeedHistoryAsync(int numberOfFeeds);
 

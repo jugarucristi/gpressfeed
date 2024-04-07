@@ -1,6 +1,4 @@
 using Application.Interfaces;
-using Application.Models;
-using Application.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GPressFeed.API.Controllers;

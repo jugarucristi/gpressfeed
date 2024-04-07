@@ -15,6 +15,6 @@ public class FetchNewsJob : IJob
 
     public async Task Execute(IJobExecutionContext context)
     {
-        await _pressFeedService.UpsertAndReturnTodaysNewsAsync();
+        await _pressFeedService.UpsertTodaysNewsAsync();
     }
 }

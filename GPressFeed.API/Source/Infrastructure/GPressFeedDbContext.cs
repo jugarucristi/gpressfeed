@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure;
+
 public class GPressFeedDbContext : DbContext
 {
     public GPressFeedDbContext(DbContextOptions<GPressFeedDbContext> options) : base(options)

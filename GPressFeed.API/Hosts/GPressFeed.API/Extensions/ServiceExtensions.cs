@@ -46,8 +46,24 @@ public static class ServiceExtensions
            .Get<PaLMRetrieverConfiguration>();
 
         services.AddSingleton(retrieverConfiguration);
-        services.AddTransient<IPaLMRetriever, PaLMRetriever>();
-        services.AddHttpClient<IPaLMRetriever, PaLMRetriever>(client =>
+        services.AddTransient<ICategoryRetriever, PaLMRetriever>();
+        services.AddHttpClient<ICategoryRetriever, PaLMRetriever>(client =>
+        {
+            client.BaseAddress = new Uri(retrieverConfiguration.BaseAddress);
+        });
+
+        return services;
+    }
+
+    public static IServiceCollection AddOpenAiRetriever(this IServiceCollection services, IConfiguration configuration)
+    {
+        var retrieverConfiguration = configuration
+           .GetSection("OpenAiRetrieverConfiguration")
+           .Get<OpenAiRetrieverConfiguration>();
+
+        services.AddSingleton(retrieverConfiguration);
+        services.AddTransient<ICategoryRetriever, OpenAIRetriever>();
+        services.AddHttpClient<ICategoryRetriever, OpenAIRetriever>(client =>
         {
             client.BaseAddress = new Uri(retrieverConfiguration.BaseAddress);
         });

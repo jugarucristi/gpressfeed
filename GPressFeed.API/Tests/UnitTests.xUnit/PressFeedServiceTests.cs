@@ -2,7 +2,6 @@ using Application.Interfaces;
 using Application.Models;
 using Application.Services;
 using NSubstitute;
-using NSubstitute.ReturnsExtensions;
 
 namespace UnitTests.xUnit
 {
@@ -10,13 +9,13 @@ namespace UnitTests.xUnit
     {
         private readonly IGoogleTrendsRetriever _googleTrendsRetrieverMock;
         private readonly IPressFeedRepository _repositoryMock;
-        private readonly IPaLMRetriever _paLMRetrieverMock;
+        private readonly ICategoryRetriever _paLMRetrieverMock;
 
         public PressFeedServiceTests()
         {
             _googleTrendsRetrieverMock = Substitute.For<IGoogleTrendsRetriever>();
             _repositoryMock = Substitute.For<IPressFeedRepository>();
-            _paLMRetrieverMock = Substitute.For<IPaLMRetriever>();
+            _paLMRetrieverMock = Substitute.For<ICategoryRetriever>();
         }
 
         [Fact]
@@ -38,7 +37,7 @@ namespace UnitTests.xUnit
         [Theory]
         [InlineData(true)]
         [InlineData(false)]
-        public async void UpsertAndReturnTodaysNewsAsync_IfCurrentNewsIsNull_UpsertsAndReturnsNews(bool currentFeedIsNull)
+        public async void UpsertTodaysNewsAsync_IfCurrentNewsIsNull_UpsertsNews(bool currentFeedIsNull)
         {
             //Arrange
             var currentFeed = new Feed();
@@ -51,11 +50,15 @@ namespace UnitTests.xUnit
 
             var service = new PressFeedService(_googleTrendsRetrieverMock, _repositoryMock, _paLMRetrieverMock);
 
+            var numberOfCalls = currentFeedIsNull ? 1 : 0;
+
             //Act
-            var result = await service.UpsertAndReturnTodaysNewsAsync();
+            await service.UpsertTodaysNewsAsync();
 
             //Assert
-            Assert.Equal(currentFeedIsNull, result != currentFeed);
+            await _googleTrendsRetrieverMock.ReceivedWithAnyArgs(numberOfCalls).GetNews();
+            await _paLMRetrieverMock.ReceivedWithAnyArgs(numberOfCalls).GetFeedWithArticleCategories(articleList);
+            await _repositoryMock.ReceivedWithAnyArgs(numberOfCalls).InsertNewsFeedAsync(currentFeed);
         }
     }
 }
